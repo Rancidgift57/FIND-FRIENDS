@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./static/style4.css">
+<link rel="icon" type="image/x-icon" href="./static/favicon.ico">
+<title>Find Friends Form</title>
+
+</head>
+<body>
+<div class="container">
+  <form action="/submit" method="post">
+    <div class="form-group">
+      <p class="title">SIGN UP</p>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="year">Year:</label>
+      <select id="year" name="year" required>
+        <option value="">Select Year</option>
+        <option value="FE">FE</option>
+        <option value="SE">SE</option>
+        <option value="TE">TE</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="branch">Branch:</label>
+      <select id="branch" name="branch" required>
+        <option value="">Select Branch</option>
+        <option value="Computer">Computer</option>
+        <option value="IT">IT</option>
+        <option value="EXTC">EXTC</option>
+        <option value="MECHANICAL">MECHANICAL</option>
+        <option value="IOT">IOT</option>
+        <option value="AIDS">AIDS</option>
+        <option value="AIML">AIML</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="prn">PRN:</label>
+      <input type="text" id="prn" name="prn" required>
+    </div>
+    <div class="form-group">
+      <label for="residing-pincode">Residing Pincode:</label>
+      <input type="text" id="residing-pincode" name="residing-pincode" required>
+    </div>
+    <div class="form-group">
+      <label for="1st-hobby">1st Preferred Hobby:</label>
+      <select id="1st-hobby" name="1st-hobby" required onchange="showOtherHobbyInput(this.value, 'other-hobby-group')">
+        <option value="">Select Hobby</option>
+        <option value="Reading">Reading</option>
+        <option value="Writing">Writing</option>
+        <option value="Sports and Fitness">Sports and Fitness</option>
+        <option value="Music">Music</option>
+        <option value="Art">Art</option>
+        <option value="Gaming">Gaming</option>
+        <option value="Photography">Photography</option>
+        <option value="Cooking">Cooking</option>
+        <option value="Dancing">Dancing</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div class="form-group" id="other-hobby-group" style="display: none;">
+      <label for="other-hobby">Other Hobby:</label>
+      <input type="text" id="other-hobby" name="other-hobby">
+    </div>
+    <div class="form-group">
+      <label for="2nd-hobby">2nd Preferred Hobby:</label>
+      <select id="2nd-hobby" name="2nd-hobby" required onchange="showOtherHobbyInput(this.value, 'other-hobby-group2')">
+        <option value="">Select Hobby</option>
+        <option value="Reading">Reading</option>
+        <option value="Writing">Writing</option>
+        <option value="Sports and Fitness">Sports and Fitness</option>
+        <option value="Music">Music</option>
+        <option value="Art">Art</option>
+        <option value="Gaming">Gaming</option>
+        <option value="Photography">Photography</option>
+        <option value="Cooking">Cooking</option>
+        <option value="Dancing">Dancing</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div class="form-group" id="other-hobby-group2" style="display: none;">
+      <label for="other-hobby2">Other Hobby:</label>
+      <input type="text" id="other-hobby2" name="other-hobby2">
+    </div>
+    <div class="form-group">
+      <label for="3rd-hobby">3rd Preferred Hobby:</label>
+      <select id="3rd-hobby" name="3rd-hobby" required onchange="showOtherHobbyInput(this.value,'other-hobby-group3')">
+        <option value="">Select Hobby</option>
+        <option value="Reading">Reading</option>
+        <option value="Writing">Writing</option>
+        <option value="Sports and Fitness">Sports and Fitness</option>
+        <option value="Music">Music</option>
+        <option value="Art">Art</option>
+        <option value="Gaming">Gaming</option>
+        <option value="Photography">Photography</option>
+        <option value="Cooking">Cooking</option>
+        <option value="Dancing">Dancing</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div class="form-group" id="other-hobby-group3" style="display: none;">
+      <label for="other-hobby">Other Hobby:</label>
+      <input type="text" id="other-hobby3" name="other-hobby3">
+    </div>
+    <div class="form-group">
+      <label for="favorite-food">Favourite Food:</label>
+      <select id="favorite-food" name="favorite-food" required onchange="showOtherFoodInput(this.value, 'other-food-group')">
+        <option value="">Select Food</option>
+        <option value="Pizza">Pizza</option>
+        <option value="Pasta">Pasta</option>
+        <option value="Burgers">Burgers</option>
+        <option value="Fries">Fries</option>
+        <option value="Noodles">Noodles</option>
+        <option value="Smoothies/Juices/Milkshake">Smoothies/Juices/Milkshake</option>
+        <option value="Ice creams">Ice creams</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div class="form-group" id="other-food-group" style="display: none;">
+      <label for="other-food">Other Food:</label>
+      <input type="text" id="other-food" name="other-food">
+    </div>
+    <div class="form-group">
+      <label for="social-media-usage">How often do you use social media on a daily basis?</label>
+      <select id="social-media-usage" name="social-media-usage" required>
+        <option value="">Select Option</option>
+        <option value="3+ hours">3+ hours</option>
+        <option value="1-3 hours">1-3 hours</option>
+        <option value="Less than an hour">Less than an hour</option>
+        <option value="Never">Never</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="community-involvement">Would you like to get involved in a community?</label>
+      <select id="community-involvement" name="community-involvement" required>
+        <option value="">Select Option</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="travel-destinations">Desired travel destinations:</label>
+      <select id="travel-destinations" name="travel-destinations" required>
+        <option value="">Select Destination</option>
+        <option value="Beach">Beach</option>
+        <option value="Mountains">Mountains</option>
+        <option value="Cultural enriched locations">Cultural enriched locations</option>
+        <option value="Winter wonderlands">Winter wonderlands</option>
+        <option value="Adventure engaging places">Adventure engaging places</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="preferred-gadget">Which gadget do you prefer the most?</label>
+      <select id="preferred-gadget" name="preferred-gadget" required>
+        <option value="">Select Gadget</option>
+        <option value="Smartphone">Smartphone</option>
+        <option value="Laptop/Computer">Laptop/Computer</option>
+        <option value="Gaming Consoles">Gaming Consoles</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="physical-well-being">How do you prioritize your physical well-being?</label>
+      <select id="physical-well-being" name="physical-well-being" required>
+        <option value="">Select Priority</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="mental-well-being">How do you prioritize your mental well-being?</label>
+      <select id="mental-well-being" name="mental-well-being" required>
+        <option value="">Select Priority</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="creative-activities">Do you engage in any creative activities?</label>
+      <select id="creative-activities" name="creative-activities" required>
+        <option value="">Select Option</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="future-goals">Future Goals:</label>
+      <select id="future-goals" name="future-goals" required>
+        <option value="">Select Goal</option>
+        <option value="Good placement">Good placement</option>
+        <option value="Startup">Startup</option>
+        <option value="Get rich somehow">Get rich somehow</option>
+        <option value="Further studies">Further studies</option>
+        <option value="Haven't thought about it">Haven't thought about it</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="password">PASSWORD:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="button">Submit</button>
+
+    </div>
+
+  </form>
+</div>
+<script>
+  function showOtherHobbyInput(selectedValue, otherHobbyGroupID) {
+  var otherHobbyGroup = document.getElementById(otherHobbyGroupID);
+  var otherHobbyInput = otherHobbyGroup.querySelector('input');
+
+  if (selectedValue === "Other") {
+    otherHobbyGroup.style.display = "block";
+    otherHobbyInput.required = true;
+  } else {
+    otherHobbyGroup.style.display = "none";
+    otherHobbyInput.required = false;
+  }
+}
+
+function showOtherFoodInput(selectedValue, otherFoodGroupID) {
+  var otherFoodGroup = document.getElementById(otherFoodGroupID);
+  var otherFoodInput = otherFoodGroup.querySelector('input');
+
+  if (selectedValue === "Other") {
+    otherFoodGroup.style.display = "block";
+    otherFoodInput.required = true;
+  } else {
+    otherFoodGroup.style.display = "none";
+    otherFoodInput.required = false;
+  }
+}
+</script>
+
+</body>
+</html>

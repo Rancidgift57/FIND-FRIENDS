@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find friend</title>
+    <link rel="stylesheet" href="./static/style2.css">
+    <link rel="icon" type="image/x-icon" href="./static/favicon.ico">
+</head>
+<body>
+    <div class="findfriend">
+
+        <h2>Find Friends</h2>
+    </div>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+        </div>
+        <div class="form-container sign-in-container">
+            <div class="matchdivtext">
+                <h1>Top 3 Matches For You</h1>
+            </div>
+            <div class="matchdiv">
+                
+                <div class="match"></div> 
+                <div class="match"></div> 
+                <div class="match"></div>
+                                          
+            </div>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="topmatchtitlediv">
+
+                    <h1>Top Match</h1>
+                </div>
+                <div class="topmatchname">
+                    <div class="matchimg">
+                        <img src="./static/friends.png" alt="">
+                    </div>
+                    <div class="match">
+                        <div class="topmatch"></div>
+                    </div>
+                </div>
+                <div class="connectbtn">
+
+                    <button onclick="redirectToreq()">Connect with them </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--<div class="changediv">
+        Want to change details , preferances & intrests please 
+        <button>click here</button>
+    </div>
+-->
+    <div class="teamdiv">
+        <div class="teamtitle">
+            <h1>OUR TEAM</h1>
+        </div>
+        <div class="teamtitle">
+            <h1 style="font-size: 24px;">Guided by : Rushikesh Sir</h1>
+        </div>
+        <div class="teammem">
+
+            <p>Prem Rana</p>
+            <p>Mohit Paradkar</p>
+            <p>Nikhil Nair</p>
+            <p>Tanmay Rewale</p>
+        </div>
+    </div>
+<script >
+
+function redirectToreq() {
+    // Replace 'signup.html' with the URL of the page you want to redirect to
+    window.location.href = 'friendreq.html';
+}
+
+    window.onload = function() {
+    loadValuesFromFiles('FINDFRIENDS.txt', 'FINDFRIENDS2.txt');
+};
+
+function loadValuesFromFiles(filename1, filename2) {
+    loadValuesFromFile(filename1, '.match', populateDivs);
+    loadValuesFromFile(filename2, '.topmatch', populateDivs);
+}
+
+function loadValuesFromFile(filename, selector, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var values = xhr.responseText.split('\n');
+                callback(values, selector);
+            } else {
+                console.error('Failed to load file: ' + filename);
+            }
+        }
+    };
+    xhr.open('GET', filename, true);
+    xhr.send();
+}
+
+function populateDivs(values, selector) {
+    var matchDivs = document.querySelectorAll(selector);
+    if (!matchDivs) return;
+
+    for (var i = 0; i < values.length; i++) {
+        var value = values[i].trim();
+        if (value !== '') {
+            matchDivs[i].textContent = value;
+        }
+    }
+}
+
+    
+    
+
+</script>
+   
+</body>
+</html>
