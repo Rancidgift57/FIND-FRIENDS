@@ -351,6 +351,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ---
 
-**Contact**: For issues or suggestions, open a GitHub issue or contact the maintainer at `your-email@example.com`.
+**Contact**: For issues or suggestions, open a GitHub issue or contact the maintainer at `nnair7598@gmail.com`.
 
 **Last Updated**: June 1, 2025
